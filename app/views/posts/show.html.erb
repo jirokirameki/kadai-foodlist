@@ -1,0 +1,16 @@
+<h1>id: <%= @post.id %> のPost詳細ページ</h1>
+
+<!-- 追加箇所 開始 -->
+<p>
+  <% if @post.image? %>
+    <div class="thumbnail">
+      <%= image_tag @post.image.url %>
+    </div>
+  <% end %>
+</p>
+<!-- 追加箇所 終了 -->
+
+<p><%= @post.comment %></p>
+
+<%= link_to 'このPostを編集する', edit_post_path(@post) %>
+<%= link_to 'このメッセージを削除する', @post, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>

@@ -54,3 +54,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ページネーション
 gem 'kaminari'
+
+# ファイルアップロード用
+gem "carrierwave"
+
+# 画像のリサイズ処理に必要
+gem 'rmagick'
+
+# 画像のトリミング処理に必要
+gem 'mini_magick'
