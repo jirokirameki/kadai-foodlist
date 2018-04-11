@@ -68,10 +68,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
  # ファイル名は日本語が入ってくると嫌なので、下記のようにしてみてもいい。
  # 日付(20131001.jpgみたいなファイル名)で保存する
-  def filename
-    time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-    name.downcase
-  end
+  # def filename
+  #   time = Time.now
+  #   name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+  #   name.downcase
+  # end
   
 end

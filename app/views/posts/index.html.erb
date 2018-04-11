@@ -1,7 +1,1 @@
-<ul class="main">
-  <% @posts.each do |post| %>
-    <% if post.image? %>
-      <%= link_to post do %><li style="background-image: url('<%= post.image.url %>')"></li><% end %>
-    <% end %>
-  <% end %>
-</ul>
+<%= render 'posts/posts', posts: @posts %>

@@ -13,10 +13,11 @@
  *= require_tree .
  *= require_self
  */
- 
- /*body {*/
- /*	 padding-bottom: 70px;*/
- /*}*/
+
+body {
+	/*　footer navを固定表示している分　*/
+	padding-bottom: 70px;
+}
 
 .container {
   padding: 0;

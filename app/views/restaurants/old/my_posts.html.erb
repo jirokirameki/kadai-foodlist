@@ -1,0 +1,22 @@
+<div class="row">
+  <aside class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @restaurant.brand_name %></h3>
+      </div>
+    </div>
+  </aside>
+  <div class="col-xs-8">
+    <ul class="nav nav-tabs nav-justified">
+      <li class="<%= 'active' if current_page?(restaurant_path(@restaurant)) %>"><%= link_to my_posts_restaurant_path(@restaurant) do %>Posts <span class="badge"><%= @count_posted_posts %></span><% end %></li>
+      <li class="<%= 'active' if current_page?(restaurant_path(@restaurant)) %>"><%= link_to my_draft_posts_restaurant_path(@restaurant) do %>Draft Posts <span class="badge"><%= @count_draft_posts %></span><% end %></li>
+    </ul>
+    <ul class="main">
+      <% @my_posts.each do |post| %>
+        <% if post.image? %>
+          <%= link_to post do %><li style="background-image: url('<%= post.image.url %>')"></li><% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

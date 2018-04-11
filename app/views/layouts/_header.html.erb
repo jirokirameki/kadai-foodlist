@@ -12,8 +12,15 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">新規登録</a></li>
-        <li><a href="#">ログイン</a></li>
+        <% if logged_in? %>
+          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+          <!--<li><%= link_to 'MyPage', @current_restaurant %></li>-->
+          <li><%= link_to 'MyPage', restaurant_path(@current_restaurant) %></li>
+          <li><%= link_to 'Post', new_post_path %></li>
+        <% else %>
+          <li><%= link_to 'Signup', signup_path %></li>
+          <li><%= link_to 'Login', login_path %></li>
+        <% end %>  
       </ul>
       </div>
     </div>

@@ -10,13 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410051618) do
+ActiveRecord::Schema.define(version: 20180411075452) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "image"
+    t.integer  "restaurant_id"
+    t.boolean  "draft",         default: false, null: false
+    t.index ["restaurant_id"], name: "index_posts_on_restaurant_id", using: :btree
+  end
+
+  create_table "restaurants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "brand_name"
+    t.string   "email"
+    t.string   "tel"
+    t.string   "address"
+    t.string   "password_digest"
+    t.string   "thumbnail"
+    t.string   "company_name"
+    t.string   "url"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "image"
   end
 
+  add_foreign_key "posts", "restaurants"
 end

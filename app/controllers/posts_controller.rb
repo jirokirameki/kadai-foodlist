@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+  before_action :require_restaurant_logged_in, only: [:new, :create, :edit, :update, :destroy]
+  before_action :correct_restaurant, only: [:edit, :update, :destroy]
+  
   def index
-    @posts = Post.all    
+    @posts = Post.where(draft: false).all.order('created_at DESC')
   end
 
   def show
@@ -12,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_restaurant.posts.build(post_params)
 
     if @post.save
       flash[:success] = 'Post が正常に投稿されました'
@@ -53,6 +56,7 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(
       :comment,
+      :draft,
       :image, 
       :image_cache, 
       :remove_image 
