@@ -63,3 +63,8 @@ gem 'rmagick'
 
 # 画像のトリミング処理に必要
 gem 'mini_magick'
+
+# Heroku用
+group :production do
+  gem 'pg', '0.21.0'
+end
